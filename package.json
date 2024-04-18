@@ -1,0 +1,23 @@
+{
+  "name": "demo-npm-package-test-purpose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "18.12.1",
+    "npm": "8.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aditya-raval-genea/demo-npm-package.git"
+  },
+  "author": "araval@getgenea.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aditya-raval-genea/demo-npm-package/issues"
+  },
+  "homepage": "https://github.com/aditya-raval-genea/demo-npm-package#readme"
+}
