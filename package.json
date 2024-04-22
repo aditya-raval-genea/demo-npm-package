@@ -21,9 +21,6 @@
     "url": "https://github.com/aditya-raval-genea/demo-npm-package/issues"
   },
   "homepage": "https://github.com/aditya-raval-genea/demo-npm-package#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "lodash": "4.17.21"
   }
