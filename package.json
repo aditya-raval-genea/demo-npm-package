@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -r -f ./build && cp -r ./ ./build && cd build && rm -rf .git && rm -rf .github && rm -rf node_modules",
+    "build": "rm -rf ./build && mkdir build && cp index.js build/ && cp package.json build/ && cp package-lock.json build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
