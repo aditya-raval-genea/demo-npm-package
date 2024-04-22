@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "rm -r -f ./build && cp -r ./src ./build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
