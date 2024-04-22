@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -r -f ./build && cp -r ./src ./build",
+    "build": "rm -r -f ./build && cp -r ./ ./build && cd build && rm -rf .git && rm -rf .github && rm -rf node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -25,6 +25,6 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "4.17.21"
   }
 }
