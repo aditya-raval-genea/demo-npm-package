@@ -25,7 +25,7 @@ jobs:
           echo 'save-exact=true' > build/.npmrc
           echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > build/.npmrc
       - name : Publishing Build to NPM
-        run: npm publish
+        run: npm publish --tag alpha
         working-directory: ./build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
