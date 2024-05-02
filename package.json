@@ -1,10 +1,11 @@
 {
   "name": "eslint-config-demo-npm-config-package",
-  "version": "0.0.1-alpha.13",
+  "version": "0.0.1-alpha.15",
   "description": "Demo nodejs package",
   "main": "index.js",
+  "readme": "./README.md",
   "scripts": {
-    "build": "rm -rf ./build && mkdir build && cp index.js build/ && cp package.json build/ && cp package-lock.json build/ && cp .eslintrc build/",
+    "build": "rm -rf ./build && mkdir build && cp index.js build/ && cp package.json build/ && cp package-lock.json build/ && cp .eslintrc build/ && cp README.md build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
