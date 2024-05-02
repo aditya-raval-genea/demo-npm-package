@@ -25,7 +25,14 @@ jobs:
           echo 'save-exact=true' > build/.npmrc
           echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > build/.npmrc
       - name : Publishing Build to NPM
+        id : npm_publish
         run: npm publish --tag alpha
         working-directory: ./build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Check Publish Status
+        if: steps.npm_publish.outcome == 'failure'
+        run: echo "npm publish failed with exit code ${{ steps.npm_publish.exitCode }}"
+      - name: Get Publish Status
+        if: steps.npm_publish.outcome == 'success'
+        run: echo "npm publish successful"
