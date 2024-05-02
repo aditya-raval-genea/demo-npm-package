@@ -18,7 +18,6 @@ jobs:
       - run: |
           echo 'save-exact=true' > build/.npmrc
           echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > build/.npmrc
-          echo 'always-auth=true' > build/.npmrc
       - run: npm publish
         working-directory: ./build
         env:
