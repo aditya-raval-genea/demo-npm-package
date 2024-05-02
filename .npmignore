@@ -1,7 +1,6 @@
-node_modules/
-.github/
-.gitignore
-.npmignore
+node_modules
 package-lock.json
+.editorconfig
+.npmrc
+.github/
 NPM PUBLISH NOTES*
-README.md
