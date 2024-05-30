@@ -24,9 +24,19 @@ jobs:
         run: |
           echo 'save-exact=true' > build/.npmrc
           echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > build/.npmrc
+      - name: Determine npm tag
+        id: npm_tag
+        run: |
+          if [[ "${{ github.event.release.tag_name }}" == *"alpha"* ]]; then
+            echo "tag=alpha" >> $GITHUB_ENV
+          elif [[ "${{ github.event.release.tag_name }}" == *"beta"* ]]; then
+            echo "tag=beta" >> $GITHUB_ENV
+          else
+            echo "tag=latest" >> $GITHUB_ENV
+          fi
       - name : Publishing Build to NPM
         id : npm_publish
-        run: npm publish --tag alpha
+        run: npm publish --tag ${{ env.tag }}
         working-directory: ./build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
