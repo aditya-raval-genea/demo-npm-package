@@ -1,7 +1,11 @@
 name: Build & Publish Package to NPM Registry
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release tag to publish'
+        required: true
+        type: string
 jobs:
   publish:
     name: Build and Publish NPM Package
@@ -16,6 +20,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: Get release information
+        id: release_info
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: inputs.release
+            });
+            return release.data;
       - name : Running NPM CI
         run: npm ci
       - name : Creating Build
@@ -27,9 +42,9 @@ jobs:
       - name: Determine npm tag
         id: npm_tag
         run: |
-          if [[ "${{ github.event.release.tag_name }}" == *"alpha"* ]]; then
+          if [[ "${{ github.event.inputs.release }}" == *"alpha"* ]]; then
             echo "tag=alpha" >> $GITHUB_ENV
-          elif [[ "${{ github.event.release.tag_name }}" == *"beta"* ]]; then
+          elif [[ "${{ github.event.inputs.release }}" == *"beta"* ]]; then
             echo "tag=beta" >> $GITHUB_ENV
           else
             echo "tag=latest" >> $GITHUB_ENV
